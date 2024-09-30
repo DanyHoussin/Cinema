@@ -27,8 +27,7 @@ class CinemaController {
             FROM actor
             INNER JOIN person
             ON actor.id_person = person.id_person
-            WHERE id_actor = :id");
-            $requete-> execute(["id" => $id]);
+            ");
             require "view/listActeurs.php";
         }
 
@@ -42,5 +41,15 @@ class CinemaController {
         WHERE id_actor = :id");
         $requete-> execute(["id" => $id]);
         require "view/detailActeur.php";
+    }
+
+    public function detailFilm($id) {
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->prepare("
+        SELECT * 
+        FROM film
+        WHERE id_film = :id");
+        $requete-> execute(["id" => $id]);
+        require "view/detailFilm.php";
     }
 }

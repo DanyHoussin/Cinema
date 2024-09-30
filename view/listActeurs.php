@@ -12,7 +12,7 @@
             foreach($requete-> fetchAll() as $actor) { ?>
             <tr>
                 <td><?= $actor["firstName"]." ".$actor["lastName"] ?></td>
-                <td><?= $actor["birthDate"] ?></td>
+                <td><?= $actor["dateBirth"] ?></td>
             </tr>
         <?php } ?> 
     </tbody>
