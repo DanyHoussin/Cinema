@@ -9,7 +9,20 @@
     <title><?= $title ?></title>
 </head>
 <body>
-<div id="wrapper" class="uk-container uk-container-expand">
+    <div id="wrapper" class="uk-container uk-container-expand">
+        <header>
+            <div>
+                Logo
+            </div>
+            <ul>
+                <li><a href="index.php?action=accueil">Home</a></li>
+                <li>News</li>
+                <li><a href="index.php?action=listFilms">Films</a></li>
+                <li><a href="index.php?action=listActeurs">Actors</a></li>
+                <li><a href="index.php?action=listDirectors">Directors</a></li>
+                <li>About</li>
+            </ul>
+        </header>
         <main>
             <div id="contenu">
                 <h1 class="uk-heading-divider">PDO Cinema</h1>
@@ -18,3 +31,4 @@
             </div>
         </main>
     </div>
+</body>

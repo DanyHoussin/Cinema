@@ -8,31 +8,7 @@
     <link rel="stylesheet" href="public/css/style.css">
     <title>Cinema</title>
 </head>
-<body>
-    <div id="wrapper">
-        <header>
-            <div>
-                Logo
-            </div>
-            <ul>
-                <li>Home</li>
-                <li>News</li>
-                <li>About</li>
-            </ul>
-        </header>
-        <main>
-            <section class="home">
 
-            </section>
-            <section class="latestMovies">
-
-            </section>
-            <section class="latestActor">
-            
-            </section>
-        </main>
-    </div>
-</body>
 
 
 <?php
@@ -50,9 +26,11 @@ $id = (isset($_GET["id"])) ? $_GET["id"] : null;
 if(isset($_GET["action"])){
     switch ($_GET["action"]) {
 
+        case "accueil" : $ctrlCinema->accueil(); break;
         case "detailActeur" : $ctrlCinema->detailActeur($id); break;
         case "detailFilm" : $ctrlCinema->detailFilm($id); break;
         case "listActeurs" : $ctrlCinema->listActeurs(); break;
+        case "listDirectors" : $ctrlCinema->listDirectors(); break;
         case "listFilms" : $ctrlCinema->listFilms(); break;
 
     }
