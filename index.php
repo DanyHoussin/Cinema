@@ -27,13 +27,22 @@ if(isset($_GET["action"])){
     switch ($_GET["action"]) {
 
         case "accueil" : $ctrlCinema->accueil(); break;
+        case "ajouterActeur" : $ctrlCinema->ajouterActeur(); break;
+        case "ajouterActeurTraitement" : $ctrlCinema->ajouterActeurTraitement(); break;
+        case "ajouterDirector" : $ctrlCinema->ajouterDirector(); break;
+        case "ajouterDirectorTraitement" : $ctrlCinema->ajouterDirectorTraitement(); break;
+        case "ajouterFilm" : $ctrlCinema->ajouterFilm(); break;
+        case "ajouterFilmTraitement" : $ctrlCinema->ajouterFilmTraitement(); break;
         case "detailActeur" : $ctrlCinema->detailActeur($id); break;
+        case "detailDirector" : $ctrlCinema->detailDirector($id); break;
         case "detailFilm" : $ctrlCinema->detailFilm($id); break;
         case "listActeurs" : $ctrlCinema->listActeurs(); break;
         case "listDirectors" : $ctrlCinema->listDirectors(); break;
         case "listFilms" : $ctrlCinema->listFilms(); break;
 
     }
+} else {
+    header("Location: index.php?action=accueil");
 }
 
 ?>

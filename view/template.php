@@ -16,11 +16,9 @@
             </div>
             <ul>
                 <li><a href="index.php?action=accueil">Home</a></li>
-                <li>News</li>
                 <li><a href="index.php?action=listFilms">Films</a></li>
                 <li><a href="index.php?action=listActeurs">Actors</a></li>
                 <li><a href="index.php?action=listDirectors">Directors</a></li>
-                <li>About</li>
             </ul>
         </header>
         <main>
