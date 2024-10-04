@@ -1,5 +1,5 @@
 
-<?php session_start();?>
+
 <h1>Ajouter un acteur/actrice</h1>
 
 <!-- Fichier à atteindre lorsque qu'on soumet le formulaire avec la méthode http -->

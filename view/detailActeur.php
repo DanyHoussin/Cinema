@@ -1,9 +1,13 @@
 <?php ob_start(); ?>
 
 <?php
-    foreach($requete-> fetchAll() as $actor) { ?>
+    foreach($requeteActor-> fetchAll() as $actor) { ?>
     <p><?= $actor["firstName"]." ".$actor["lastName"] ?></p>
-<?php } ?>
+    <?php
+    }
+    foreach($requeteFilm-> fetchAll() as $film) { ?>
+    <p><?= $film["title"]." ".$film["releaseDate"]." ".$film["characterName"] ?></p>
+    <?php } ?>
 
 <?php
 

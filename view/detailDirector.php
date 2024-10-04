@@ -1,9 +1,13 @@
 <?php ob_start(); ?>
 
 <?php
-    foreach($requete-> fetchAll() as $director) { ?>
+    foreach($requeteDirector-> fetchAll() as $director) { ?>
     <p><?= $director["firstName"]." ".$director["lastName"] ?></p>
-<?php } ?>
+    <?php
+    }
+    foreach($requeteFilm-> fetchAll() as $film) { ?>
+    <p><?= $film["title"]." ".$film["releaseDate"] ?></p>
+    <?php } ?>
 
 <?php
 

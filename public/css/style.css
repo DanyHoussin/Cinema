@@ -1,0 +1,99 @@
+/* 
+=====================================================
+======================== ALL ========================
+=====================================================
+ */
+
+ @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
+
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin : 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+#wrapper{
+    min-height: 100vh;
+    background: hsl(0, 0%, 0%);
+    gap: 20px;
+}
+
+p, h1, h2, h3, h4{
+    color: white;
+}
+
+/* 
+=====================================================
+====================== HEADER =======================
+=====================================================
+ */
+
+header{
+    display: flex;
+    top: 0;
+    position: sticky;
+    flex-direction: row;
+    justify-content:space-around;
+    align-items: center;
+    color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 15px;
+    background-color: rgb(30, 30, 30);
+}
+
+header .navbar{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+}
+
+.clientNavbar{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+#navbarphone{
+    display:none;
+}
+
+header a{
+    color: white;
+    transition: 0.5s;
+}
+
+header a:link { 
+    text-decoration: none; 
+} 
+header a:visited { 
+    text-decoration: none; 
+} 
+header a:hover { 
+    color: hsl(0, 0%, 75%);
+    transition: 0.5s;
+} 
+header a:active { 
+    text-decoration: none; 
+}
+
+.menu{
+    display: none;
+}
+
+/* 
+=====================================================
+======================= HOME ========================
+=====================================================
+ */
+
+ .home{
+    background-image: url(../img/fond.png);
+    background-size: cover;
+    background-position:bottom;
+    background-repeat: no-repeat;
+    height: 800px;
+ }

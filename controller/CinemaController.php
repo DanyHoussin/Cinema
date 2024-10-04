@@ -84,7 +84,7 @@ class CinemaController {
             INNER JOIN person
             ON director.id_person = person.id_person
             ");
-            require "view/ajouterDirectorTraitement.php";
+            require "ajouterDirectorTraitement.php";
     }
 
     public function ajouterFilm() {
@@ -120,6 +120,7 @@ class CinemaController {
         $requete = $pdo->query("
             SELECT *
             FROM film
+            ORDER BY releaseDate DESC
         ");
 
         require "view/listFilms.php";
@@ -136,6 +137,7 @@ class CinemaController {
             FROM actor
             INNER JOIN person
             ON actor.id_person = person.id_person
+            ORDER BY lastName
             ");
             require "view/listActeurs.php";
     }
@@ -151,6 +153,7 @@ class CinemaController {
             FROM director
             INNER JOIN person
             ON director.id_person = person.id_person
+            ORDER BY lastName
             ");
         require "view/listDirectors.php";
     }
@@ -160,25 +163,44 @@ class CinemaController {
      */
     public function detailActeur($id) {
         $pdo = Connect::seConnecter();
-        $requete = $pdo->prepare("
+        $requeteActor = $pdo->prepare("
         SELECT * 
         FROM actor
         INNER JOIN person
         ON actor.id_person = person.id_person
         WHERE id_actor = :id");
-        $requete-> execute(["id" => $id]);
+        $requeteActor-> execute(["id" => $id]);
+        $requeteFilm = $pdo->prepare("
+        SELECT DISTINCT film.id_film, title, releaseDate, timeFilm, synopsis, rate, poster, id_director, characterName
+        FROM acting
+        INNER JOIN film
+        ON acting.id_film = film.id_film
+        INNER JOIN rolefilm
+        ON acting.id_role = rolefilm.id_role
+        INNER JOIN actor
+        ON acting.id_actor = actor.id_actor
+        WHERE acting.id_actor = :id");
+        $requeteFilm-> execute(["id" => $id]);
+
         require "view/detailActeur.php";
     }
 
     public function detailDirector($id) {
         $pdo = Connect::seConnecter();
-        $requete = $pdo->prepare("
+        $requeteDirector = $pdo->prepare("
         SELECT * 
         FROM director
         INNER JOIN person
         ON director.id_person = person.id_person
-        WHERE id_actor = :id");
-        $requete-> execute(["id" => $id]);
+        WHERE id_director = :id");
+        $requeteDirector-> execute(["id" => $id]);
+        $requeteFilm = $pdo->prepare("
+        SELECT DISTINCT film.id_film, title, releaseDate, timeFilm, synopsis, rate, poster
+        FROM film
+        INNER JOIN director
+        ON film.id_director = director.id_director
+        WHERE film.id_director = :id");
+        $requeteFilm-> execute(["id" => $id]);
         require "view/detailDirector.php";
     }
 
@@ -187,11 +209,32 @@ class CinemaController {
      */
     public function detailFilm($id) {
         $pdo = Connect::seConnecter();
-        $requete = $pdo->prepare("
-        SELECT * 
+        $requeteFilm = $pdo->prepare("
+        SELECT DISTINCT film.id_film, title, releaseDate, timeFilm, synopsis, rate, poster, firstName, lastName
         FROM film
-        WHERE id_film = :id");
-        $requete-> execute(["id" => $id]);
+        INNER JOIN acting
+        ON film.id_film = acting.id_film
+        INNER JOIN rolefilm
+        ON acting.id_role = rolefilm.id_role
+        INNER JOIN director
+        ON film.id_director = director.id_director
+        INNER JOIN person
+        ON director.id_person = person.id_person
+        WHERE film.id_film = :id");
+        $requeteFilm-> execute(["id" => $id]);
+        $requeteActor = $pdo->prepare("
+        SELECT DISTINCT film.id_film, firstName, lastName, characterName
+        FROM acting
+        INNER JOIN film
+        ON acting.id_film = film.id_film
+        INNER JOIN rolefilm
+        ON acting.id_role = rolefilm.id_role
+        INNER JOIN actor
+        ON acting.id_actor = actor.id_actor
+        INNER JOIN person
+        ON actor.id_person = person.id_person
+        WHERE film.id_film = :id");
+        $requeteActor-> execute(["id" => $id]);
         require "view/detailFilm.php";
     }
 }

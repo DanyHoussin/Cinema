@@ -14,12 +14,18 @@
 <?php
 
 use controller\CinemaController;
+use controller\ActeurController;
+use controller\DirectorController;
+use controller\FilmController;
 
 spl_autoload_register(function ($class_name) {
     include $class_name . '.php';
 });
 
 $ctrlCinema = new CinemaController();
+$ctrlActeur = new ActeurController();
+$ctrlDirector = new DirectorController();
+$ctrlFilm = new FilmController();
 
 $id = (isset($_GET["id"])) ? $_GET["id"] : null;
 
@@ -28,11 +34,11 @@ if(isset($_GET["action"])){
 
         case "accueil" : $ctrlCinema->accueil(); break;
         case "ajouterActeur" : $ctrlCinema->ajouterActeur(); break;
-        case "ajouterActeurTraitement" : $ctrlCinema->ajouterActeurTraitement(); break;
+        case "ajouterActeurTraitement" : $ctrlActeur->ajouterActeurTraitement(); break;
         case "ajouterDirector" : $ctrlCinema->ajouterDirector(); break;
-        case "ajouterDirectorTraitement" : $ctrlCinema->ajouterDirectorTraitement(); break;
+        case "ajouterDirectorTraitement" : $ctrlDirector->ajouterDirectorTraitement(); break;
         case "ajouterFilm" : $ctrlCinema->ajouterFilm(); break;
-        case "ajouterFilmTraitement" : $ctrlCinema->ajouterFilmTraitement(); break;
+        case "ajouterFilmTraitement" : $ctrlFilm->ajouterFilmTraitement(); break;
         case "detailActeur" : $ctrlCinema->detailActeur($id); break;
         case "detailDirector" : $ctrlCinema->detailDirector($id); break;
         case "detailFilm" : $ctrlCinema->detailFilm($id); break;

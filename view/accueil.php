@@ -1,13 +1,19 @@
 <?php ob_start(); ?>
 
 <section class="home">
-    Page d'accueil
+    <p>Page d'accueil et affiche</p>
+    <div class="affiche">
+        <article>
+            <img class="affichePoster">
+            <
+        </article>
+    </div>
 </section>
 <section class="latestMovies">
-    Les derniers films ajoutés
+    <p>Les derniers films ajoutés</p>
 </section>
 <section class="latestActor">
-    Les derniers acteurs/actrices ajouté(e)s
+    <p>Les derniers acteurs/actrices ajouté(e)s</p>
 </section>
 
 <?php

@@ -14,7 +14,7 @@
             <div>
                 Logo
             </div>
-            <ul>
+            <ul class="navbar">
                 <li><a href="index.php?action=accueil">Home</a></li>
                 <li><a href="index.php?action=listFilms">Films</a></li>
                 <li><a href="index.php?action=listActeurs">Actors</a></li>
@@ -23,7 +23,6 @@
         </header>
         <main>
             <div id="contenu">
-                <h1 class="uk-heading-divider">PDO Cinema</h1>
                 <h2 class="uk-heading-bullet"><?= $title_secondaire ?></h2>
                 <?= $contenu ?>
             </div>
