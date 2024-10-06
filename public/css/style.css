@@ -40,7 +40,7 @@ header{
     padding-top: 20px;
     padding-bottom: 20px;
     font-size: 15px;
-    background-color: rgb(30, 30, 30);
+    background-color: rgb(34, 34, 34);
 }
 
 header .navbar{
@@ -96,4 +96,109 @@ header a:active {
     background-position:bottom;
     background-repeat: no-repeat;
     height: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 0;
  }
+
+.welcomeBack{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.affiche{
+    height: 290px;
+    margin: 50px 0px;
+    border-radius: 35px;
+    position: relative;
+    width: 100%;
+
+}
+
+.affichePoster{
+    display: flex;
+    padding: 0% 10%;
+    max-width: 100%;
+    position: relative;
+    z-index: 0;
+}
+
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits:false;
+}
+
+.affichePoster::after, .affichePoster::before{
+    --angle: 0deg;
+    content:'';
+    position: absolute;
+    height: 100%;
+    width: 80%;
+    background-image: conic-gradient(from var(--angle), black, rgb(0, 98, 255),black ,rgb(0, 98, 255),black );
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    padding: 5px;
+    z-index: -1;
+    border-radius: 40px;
+    animation: 3s spin linear infinite;
+}
+
+.affichePoster::before{
+    --angle: 0deg;
+    padding: 15px;
+    background-image: conic-gradient(from var(--angle), black, rgb(0, 98, 255),black ,rgb(0, 98, 255),black );
+    filter: blur(1rem);
+}
+
+@keyframes spin {
+    from{
+        --angle:0deg;
+    }    
+    to{
+        --angle:360deg;
+    }
+}
+
+.poster{
+    overflow: hidden;
+    height:290px ;
+    width: 100%;
+    padding: 0%;
+    border-radius: 35px 0px 0px 35px;
+}
+
+.affiche img{
+    width: 600px;
+}
+
+.affiche .infoAffiche{
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    background: linear-gradient(0.30turn,rgb(14, 27, 44),rgb(15, 29, 46), rgba(20, 54, 85, 1));
+    border-radius: 0px 35px 35px 0px;
+    width: 100%;
+    gap: 10px;
+}
+
+.infoAffiche .synopsis{
+    font-size: small;
+}
+
+.viewButton{
+    position:relative;
+    width: 100%;
+    height: 100%;
+}
+
+.viewButton a{
+    position:absolute;
+    right: 0%;
+    bottom: 0%;
+}
