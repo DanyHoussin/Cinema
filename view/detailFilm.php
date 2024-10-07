@@ -12,7 +12,7 @@
     <p>Actor :</p>
     <?php
     foreach($requeteActor-> fetchAll() as $actor) { ?>
-    <p><?= $actor["firstName"]." ".$actor["lastName"]." dans le role de ".$actor["characterName"] ?></p>
+    <p><?= $actor["firstName"]." ".$actor["lastName"]." dans le role de ".$actor["characterName"] ?><a href="index.php?action=detailActeur&id=<?= $actor["id_actor"] ?>">SEE</a> </p>
     <?php } ?>
     <a href="index.php?action=modifierFilm&id=<?= $film["id_film"] ?>">EDIT</a> 
     <?php } ?>

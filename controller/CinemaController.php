@@ -247,7 +247,7 @@ class CinemaController {
         WHERE film.id_film = :id");
         $requeteFilm-> execute(["id" => $id]);
         $requeteActor = $pdo->prepare("
-        SELECT DISTINCT film.id_film, firstName, lastName, characterName
+        SELECT DISTINCT film.id_film, firstName, lastName, actor.id_actor, characterName
         FROM acting
         INNER JOIN film
         ON acting.id_film = film.id_film
