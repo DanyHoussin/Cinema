@@ -23,7 +23,6 @@
         </header>
         <main>
             <div id="contenu">
-                <h2 class="uk-heading-bullet"><?= $title_secondaire ?></h2>
                 <?= $contenu ?>
             </div>
         </main>

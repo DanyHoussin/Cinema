@@ -1,41 +1,42 @@
-<h1>Ajouter un film</h1>
+<h1>Modifier un film</h1>
 
 <!-- Fichier à atteindre lorsque qu'on soumet le formulaire avec la méthode http -->
-<form action="index.php?action=ajouterFilmTraitement" method="post">
+<?php foreach($requeteFilm-> fetchAll() as $film) { ?>
+<form action="index.php?action=modifierFilmTraitement&id=<?= $film["id_film"]?>" method="post">
     <p>
         <label>
             Titre du film :
-            <input type="text" name="title" class="form-control">
+            <input type="text" value="<?= $film["title"] ?>" name="title" class="form-control">
         </label>
     </p>
     <p>
         <label>
             Date de sortie du film :
-            <input type="date"  name="releaseDate" class="form-control">
+            <input type="date" value="<?= $film["releaseDate"] ?>" name="releaseDate" class="form-control">
         </label>
     </p>
     <p>
         <label>
             Durée du film (en minutes) :
-            <input type="number" name="timeFilm" class="form-control" min="1" max="999" step="1" value="1">
+            <input type="number" value="<?= $film["timeFilm"] ?>" name="timeFilm" class="form-control" min="1" max="999" step="1" value="1">
         </label>
     </p>
     <p>
         <label>
             Synopsis du film :
-            <input type="text" name="synopsis" class="form-control">
+            <input type="text" value="<?= $film["synopsis"] ?>" name="synopsis" class="form-control">
         </label>
     </p>
     <p>
         <label>
             Note (sur 5) :
-            <input type="number" name="rate" class="form-control" min="0" max="5" step="0.1" value="0">
+            <input type="number" value="<?= $film["rate"] ?>" name="rate" class="form-control" min="0" max="5" step="0.1" value="0">
         </label>
     </p>
     <p>
         <label>
             Affiche du film (lien) :
-            <input type="text" name="poster" class="form-control">
+            <input type="text" value="<?= $film["poster"] ?>" name="poster" class="form-control">
         </label>
     </p>
     <p>
@@ -50,8 +51,9 @@
         </label>
     </p>
     <p>
-        <input type="submit" class="btn btn-success" name="submit" value="Ajouter">
+        <input type="submit" class="btn btn-success" name="submit" value="Modifier">
     </p>
+    <?php } ?>
 </form>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

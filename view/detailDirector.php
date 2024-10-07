@@ -2,11 +2,14 @@
 
 <?php
     foreach($requeteDirector-> fetchAll() as $director) { ?>
+    <img class="profilPhoto" src="<?= $director["profilPhoto"] ?>">
     <p><?= $director["firstName"]." ".$director["lastName"] ?></p>
+    <p><?= $director["gender"] ?><p>
+    <p><?= $director["dateBirth"] ?><p>
     <?php
     }
     foreach($requeteFilm-> fetchAll() as $film) { ?>
-    <p><?= $film["title"]." ".$film["releaseDate"] ?></p>
+    <p><?= $film["title"]." ".$film["releaseDate"] ?><a href="index.php?action=detailFilm&id=<?= $film["id_film"] ?>">SEE   </a></p>
     <?php } ?>
 
 <?php

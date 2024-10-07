@@ -15,12 +15,13 @@
     </thead>
     <tbody>
         <?php
-            foreach($requete-> fetchAll() as $actor) { ?>
+            foreach($requete-> fetchAll() as $director) { ?>
             <tr>
-                <td><?= $actor["firstName"]." ".$actor["lastName"] ?></td>
-                <td><?= $actor["dateBirth"] ?></td>
-                <td><?= $actor["gender"] ?></td>
-                <td><img src="<?= $actor["profilPhoto"] ?>"></td>
+                <td><?= $director["firstName"]." ".$director["lastName"] ?></td>
+                <td><?= $director["dateBirth"] ?></td>
+                <td><?= $director["gender"] ?></td>
+                <td><img src="<?= $director["profilPhoto"] ?>"></td>
+                <td><a href="index.php?action=detailDirector&id=<?= $director["id_director"] ?>">MORE</a></td>
             </tr>
         <?php } ?> 
     </tbody>

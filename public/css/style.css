@@ -4,13 +4,13 @@
 =====================================================
  */
 
- @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
+ @import url("https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
 
 *{
   box-sizing: border-box;
   padding: 0;
   margin : 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Inria", sans-serif;
 }
 
 #wrapper{
@@ -21,6 +21,50 @@
 
 p, h1, h2, h3, h4{
     color: white;
+}
+
+.inria-sans-light {
+    font-family: "Inria Sans", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .inria-sans-regular {
+    font-family: "Inria Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .inria-sans-bold {
+    font-family: "Inria Sans", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .inria-sans-light-italic {
+    font-family: "Inria Sans", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  .inria-sans-regular-italic {
+    font-family: "Inria Sans", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .inria-sans-bold-italic {
+    font-family: "Inria Sans", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+
+  table{
+    color:white;
+  }
+
+table img{
+    height: 200px;
 }
 
 /* 
@@ -41,6 +85,7 @@ header{
     padding-bottom: 20px;
     font-size: 15px;
     background-color: rgb(34, 34, 34);
+    z-index: 1;
 }
 
 header .navbar{
@@ -66,17 +111,17 @@ header a{
     transition: 0.5s;
 }
 
-header a:link { 
+a:link { 
     text-decoration: none; 
 } 
-header a:visited { 
+a:visited { 
     text-decoration: none; 
 } 
 header a:hover { 
     color: hsl(0, 0%, 75%);
     transition: 0.5s;
 } 
-header a:active { 
+a:active { 
     text-decoration: none; 
 }
 
@@ -95,7 +140,7 @@ header a:active {
     background-size: cover;
     background-position:bottom;
     background-repeat: no-repeat;
-    height: 800px;
+    height: 1000px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -108,21 +153,21 @@ header a:active {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .affiche{
-    height: 290px;
-    margin: 50px 0px;
     border-radius: 35px;
     position: relative;
-    width: 100%;
-
+    width: 1500px;
+    padding-bottom: 50px;
 }
 
 .affichePoster{
     display: flex;
     padding: 0% 10%;
-    max-width: 100%;
+    width: 100%;
     position: relative;
     z-index: 0;
 }
@@ -139,7 +184,7 @@ header a:active {
     position: absolute;
     height: 100%;
     width: 80%;
-    background-image: conic-gradient(from var(--angle), black, rgb(0, 98, 255),black ,rgb(0, 98, 255),black );
+    background-image: conic-gradient(from var(--angle), black, rgb(0, 75, 196),black );
     top: 50%;
     left: 50%;
     translate: -50% -50%;
@@ -152,7 +197,7 @@ header a:active {
 .affichePoster::before{
     --angle: 0deg;
     padding: 15px;
-    background-image: conic-gradient(from var(--angle), black, rgb(0, 98, 255),black ,rgb(0, 98, 255),black );
+    background-image: conic-gradient(from var(--angle), black, rgb(0, 75, 196),black );
     filter: blur(1rem);
 }
 
@@ -201,4 +246,75 @@ header a:active {
     position:absolute;
     right: 0%;
     bottom: 0%;
+    color: white;
+    font-size: 30px;
+}
+
+/* 
+=====================================================
+====================== MOVIES =======================
+=====================================================
+ */
+
+.latestMovies{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+/* 
+=====================================================
+====================== DETAIL =======================
+=====================================================
+ */
+
+.profilPhoto{
+    height: 300px;
+}
+
+
+
+#count{
+   font-size: 25px;
+   padding-bottom: 20px;
+}
+
+#btn{
+   margin-bottom: 20px;
+}
+
+#todoCards{
+   display: flex;
+   flex-direction: column;
+   max-width: 500px;
+   gap: 20px;
+   flex-wrap: wrap;
+}
+
+.todoCard{
+   display: flex;
+   flex-direction: row;
+   gap: 20px;
+   background-color: white;
+   transition: 0.5s;
+}
+
+
+
+.todoCard p{
+   padding-top: 10px;
+   padding-left: 10px;
+   padding-right: 10px;
+
+}
+
+.delBtn{
+    display: flex;
+    justify-content: start;
+   margin-bottom: 10px;
 }

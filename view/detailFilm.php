@@ -2,20 +2,21 @@
 
 <?php
     foreach($requeteFilm-> fetchAll() as $film) { ?>
-    <p><?= $film["title"]?></p>
     <img src="<?= $film["poster"]?>" alt="poster">
-    <p><?= $film["releaseDate"]?></p>
-    <p><?= $film["timeFilm"]?></p>
-    <p><?= $film["synopsis"]?></p>
-    <p><?= $film["rate"]?></p>
+    <p>Title : <?= $film["title"]?></p>
+    <p>Date of release : <?= $film["releaseDate"]?></p>
+    <p>Time (in minutes) : <?= $film["timeFilm"]?></p>
+    <p>Synopsis : <?= $film["synopsis"]?></p>
+    <p>Rate : <?= $film["rate"]?></p>
     <p>Director : <?= $film["firstName"]." ".$film["lastName"]?></p>
     <p>Actor :</p>
     <?php
-    }
     foreach($requeteActor-> fetchAll() as $actor) { ?>
     <p><?= $actor["firstName"]." ".$actor["lastName"]." dans le role de ".$actor["characterName"] ?></p>
     <?php } ?>
-
+    <a href="index.php?action=modifierFilm&id=<?= $film["id_film"] ?>">EDIT</a> 
+    <?php } ?>
+        
 
 <?php
 

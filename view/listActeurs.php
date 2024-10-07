@@ -20,6 +20,7 @@
                 <td><?= $actor["dateBirth"] ?></td>
                 <td><?= $actor["gender"] ?></td>
                 <td><img src="<?= $actor["profilPhoto"] ?>"></td>
+                <td><a href="index.php?action=detailActeur&id=<?= $actor["id_actor"] ?>">MORE</a></td>
             </tr>
         <?php } ?> 
     </tbody>
