@@ -12,7 +12,7 @@
     <div id="wrapper" class="uk-container uk-container-expand">
         <header>
             <div>
-                Logo
+                <a href="index.php?action=accueil"><img class="logo" src="public/img/logo.png"></a>
             </div>
             <ul class="navbar">
                 <li><a href="index.php?action=accueil">Home</a></li>
@@ -20,6 +20,19 @@
                 <li><a href="index.php?action=listActeurs">Actors</a></li>
                 <li><a href="index.php?action=listDirectors">Directors</a></li>
             </ul>
+            <div class="menuBurger">
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa-solid fa-bars"></i>
+                </a>
+                <div id="navbarphone">
+                    <ul>
+                        <li><a href="index.php?action=accueil">Home</a></li>
+                        <li><a href="index.php?action=listFilms">Films</a></li>
+                        <li><a href="index.php?action=listActeurs">Actors</a></li>
+                        <li><a href="index.php?action=listDirectors">Directors</a></li>
+                    </ul>
+                </div>
+            </div>
         </header>
         <main>
             <div id="contenu">
@@ -27,4 +40,14 @@
             </div>
         </main>
     </div>
+    <script>
+        function myFunction() {
+          var x = document.getElementById("navbarphone");
+          if (x.style.display === "flex") {
+            x.style.display = "none";
+          } else {
+            x.style.display = "flex";
+          }
+        }
+    </script>
 </body>

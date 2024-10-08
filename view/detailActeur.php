@@ -9,7 +9,7 @@
     <?php
     }
     foreach($requeteFilm-> fetchAll() as $film) { ?>
-    <p><?= $film["title"]." ".$film["releaseDate"]." dans le role de : ".$film["characterName"] ?></p>
+    <p><?= $film["title"]." ".$film["releaseDate"]." dans le role de : ".$film["characterName"] ?><a href="index.php?action=detailFilm&id=<?= $film["id_film"] ?>">SEE</a></p>
     <?php } ?>
 
 <?php

@@ -3,7 +3,7 @@
 <p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount() ?> films</p>
 
 <a href="index.php?action=ajouterFilm">Ajouter un Film</a>
-<a href="">Edit casting</a>
+<a href="index.php?action=editCasting">Edit casting</a>
 <table class="uk-table uk-table-striped">
     <thead>
         <tr>
@@ -26,7 +26,6 @@
         <?php } ?>
     </tbody>
 </table>
-</div>
 
 <?php
 

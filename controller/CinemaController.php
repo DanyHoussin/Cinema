@@ -28,25 +28,26 @@ class CinemaController {
         ON acting.id_role = rolefilm.id_role
         WHERE film.id_film = 3
         ");
-        $last_id = $pdo->lastInsertId();
-        $requeteFilm = $pdo->prepare("
+        $requeteFilmList = $pdo->prepare("
         SELECT *
-        FROM acting
-        INNER JOIN film
-        ON acting.id_film = film.id_film
+        FROM film
         INNER JOIN director
         ON film.id_director = director.id_director
         INNER JOIN person
         ON director.id_person = person.id_person
-        INNER JOIN typeoffilm
-        ON film.id_film = typeoffilm.id_film
-        INNER JOIN genre
-        ON typeoffilm.id_genre = genre.id_genre
-        INNER JOIN rolefilm
-        ON acting.id_role = rolefilm.id_role
-        WHERE film.id_film = :id
+        ORDER BY film.id_film DESC
+        LIMIT 3
         ");
-        $requeteFilm-> execute(["id" => $last_id]);
+        $requeteFilmList-> execute();
+        $requeteActorList = $pdo->prepare("
+        SELECT *
+        FROM actor
+        INNER JOIN person
+        ON actor.id_person = person.id_person
+        ORDER BY actor.id_actor DESC
+        LIMIT 6
+        ");
+        $requeteActorList-> execute();
         
         require "view/accueil.php";
     }
@@ -114,30 +115,10 @@ class CinemaController {
             INNER JOIN person
             ON director.id_person = person.id_person
             ");
-        $requeteActor = $pdo->query("
-            SELECT *
-            FROM actor
-            INNER JOIN person
-            ON actor.id_person = person.id_person
-            ");
-        $requeteRole = $pdo->query("
-            SELECT *
-            FROM rolefilm
-            ");
             require "view/ajouterFilm.php";
     }
 
-    public function ajouterFilmTraitement() {
-        
-        $pdo = Connect::seConnecter();
-        $requete = $pdo->query("
-            SELECT *
-            FROM director
-            INNER JOIN person
-            ON director.id_person = person.id_person
-            ");
-            require "view/ajouterFilmTraitement.php";
-    }
+
 
     /**
      * Lister les films
@@ -261,4 +242,5 @@ class CinemaController {
         $requeteActor-> execute(["id" => $id]);
         require "view/detailFilm.php";
     }
+    
 }

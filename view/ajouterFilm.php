@@ -23,7 +23,7 @@
     <p>
         <label>
             Synopsis du film :
-            <input type="text" name="synopsis" class="form-control">
+            <textarea type="text" name="synopsis" class="form-control"></textarea>
         </label>
     </p>
     <p>

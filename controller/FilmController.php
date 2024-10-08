@@ -135,5 +135,68 @@ class FilmController {
         $requete-> execute(["id" => $id]);
         header("Location: index.php?action=listFilms");
     }
+
+    public function editCasting() {
+        
+        $pdo = Connect::seConnecter();
+        $requeteFilm = $pdo->query("
+            SELECT *
+            FROM film
+            ");
+        $requeteActor = $pdo->query("
+            SELECT *
+            FROM actor
+            INNER JOIN person
+            ON actor.id_person = person.id_person
+            ");
+        require "view/editCasting.php";
+    }
+
+    public function editCastingTraitement() {
+        
+        $pdo = Connect::seConnecter();
+        $requeteActor = $pdo->query("
+        SELECT *
+        FROM actor
+        INNER JOIN person
+        ON actor.id_person = person.id_person
+        ");
+            if(isset($_POST['submit'])){
+                
+                $role = filter_input(INPUT_POST, "role", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+                if($role){
+                    $id_film = $_POST['film'];
+                    $id_actor = $_POST['actor'];
+                    $role = $_POST['role'];
+
+                    $stmtr = $pdo->prepare("
+                    INSERT INTO rolefilm (characterName)
+                     VALUES 
+                      (:characterName)");
+                    
+                    $stmtr->bindParam(':characterName', $role);
+                    $stmtr->execute();
+                    $id_role = $pdo->lastInsertId();
+                    var_dump($id_actor);
+            
+                    $stmtacting = $pdo->prepare("
+                    INSERT INTO acting (id_film, id_actor, id_role)
+                     VALUES 
+                      (:id_film, :id_actor, :id_role)");
+                    
+                    $stmtacting->bindParam(':id_film', $id_film);
+                    $stmtacting->bindParam(':id_actor', $id_actor);
+                    $stmtacting->bindParam(':id_role', $id_role);
+                    $stmtacting->execute();
+                    $_SESSION["error"] = "Succès : Ajout réussi !";
+                    header("Location: index.php?action=editCasting");
+                } else {
+                    $_SESSION["error"] = "Erreur : veuillez fournir les informations demandées";
+                    header("Location: index.php?action=editCasting");
+                }
+            }
+    }
+
 }
 
