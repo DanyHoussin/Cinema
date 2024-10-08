@@ -8,7 +8,6 @@
     <thead>
         <tr>
             <th>TITLE</th>
-            <th>DATE OF RELEASE</th>
             <th>POSTER</th>
         </tr>
     </thead>
@@ -17,7 +16,6 @@
             foreach($requete-> fetchAll() as $film) { ?>
             <tr>
                 <td><?= $film["title"] ?></td>
-                <td><?= $film["releaseDate"] ?></td>
                 <td><img src="<?= $film["poster"]?>" alt="poster"></td>
                 <td><a href="index.php?action=detailFilm&id=<?= $film["id_film"] ?>">MORE</a></td>
                 <td><a href="index.php?action=modifierFilm&id=<?= $film["id_film"] ?>">EDIT</a></td>

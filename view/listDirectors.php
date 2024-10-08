@@ -8,8 +8,6 @@
     <thead>
         <tr>
             <th>NAME</th>
-            <th>DATE OF BIRTH</th>
-            <th>GENDER</th>
             <th>PROFIL PHOTO</th>
         </tr>
     </thead>
@@ -18,8 +16,6 @@
             foreach($requete-> fetchAll() as $director) { ?>
             <tr>
                 <td><?= $director["firstName"]." ".$director["lastName"] ?></td>
-                <td><?= $director["dateBirth"] ?></td>
-                <td><?= $director["gender"] ?></td>
                 <td><img src="<?= $director["profilPhoto"] ?>"></td>
                 <td><a href="index.php?action=detailDirector&id=<?= $director["id_director"] ?>">MORE</a></td>
             </tr>

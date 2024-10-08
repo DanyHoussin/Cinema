@@ -31,6 +31,9 @@
                         <li><a href="index.php?action=listActeurs">Actors</a></li>
                         <li><a href="index.php?action=listDirectors">Directors</a></li>
                     </ul>
+                    <a href="javascript:void(0);" id="iconClose" onclick="myFunction()">
+                        <i class="fa-solid fa-xmark"></i>
+                    </a>
                 </div>
             </div>
         </header>
@@ -43,10 +46,13 @@
     <script>
         function myFunction() {
           var x = document.getElementById("navbarphone");
+          var y = document.getElementById("iconClose");
           if (x.style.display === "flex") {
             x.style.display = "none";
+            y.style.display = "none";
           } else {
             x.style.display = "flex";
+            y.style.display = "block";
           }
         }
     </script>

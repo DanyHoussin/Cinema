@@ -7,8 +7,6 @@
     <thead>
         <tr>
             <th>NAME</th>
-            <th>DATE OF BIRTH</th>
-            <th>GENDER</th>
             <th>PROFIL PHOTO</th>
         </tr>
     </thead>
@@ -17,8 +15,6 @@
             foreach($requete-> fetchAll() as $actor) { ?>
             <tr>
                 <td><?= $actor["firstName"]." ".$actor["lastName"] ?></td>
-                <td><?= $actor["dateBirth"] ?></td>
-                <td><?= $actor["gender"] ?></td>
                 <td><img src="<?= $actor["profilPhoto"] ?>"></td>
                 <td><a href="index.php?action=detailActeur&id=<?= $actor["id_actor"] ?>">MORE</a></td>
             </tr>

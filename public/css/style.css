@@ -471,6 +471,7 @@ a:active {
     background-position:bottom;
     background-repeat: no-repeat;
     height: auto;
+    position: relative;
  }
 
  .affiche{
@@ -547,8 +548,9 @@ a:active {
  @media only screen and (max-width: 1100px) {
      
 header{
-    position: relative;
+    position:static;
 }
+
 header .navbar{
     list-style-type: none;
     display: none;
@@ -560,8 +562,17 @@ header .navbar{
     display: block;
 }
 
+#iconClose{
+    display: none;
+}
+
 .menuBurger i{
     font-size: 30px;
+}
+
+#iconClose{
+    position: absolute;
+    right: 40%;
 }
 
 #navbarphone{
@@ -570,11 +581,16 @@ header .navbar{
     width: 100%;
     top: 0;
     left: 20%;
-    background:rgb(0, 0, 0) ;
-    filter: blur(1dem); 
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.589);
+    backdrop-filter: blur(4px);
+    padding: 40px;
 }
 
 #navbarphone ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
     gap: 20px;
     list-style: none;
 }
@@ -590,6 +606,11 @@ header .navbar{
 .affichePoster::after, .affichePoster::before{
     width: 50%;
 }
+
+table{
+}
+
+
 
 /* 
 =====================================================
@@ -618,3 +639,5 @@ header .navbar{
 .infoFilmList .title{
     padding-top: 50px;
 }
+
+ }

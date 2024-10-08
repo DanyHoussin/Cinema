@@ -58,6 +58,7 @@
                     </div>
                 </div>       
             <?php } ?>
+            <a class="buttonMore" href="index.php?action=listActeurs">More actors</a>
     </div>
 </section>
 
